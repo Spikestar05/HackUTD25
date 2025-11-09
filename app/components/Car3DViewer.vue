@@ -18,8 +18,6 @@ const selectedTyre = ref<'B'>('B')
     
     <!-- Orbit Controls - configured to allow interactions -->
     <OrbitControls 
-      :enableDamping="true" 
-      :dampingFactor="0.05"
       :minDistance="3"
       :maxDistance="15"
       :maxPolarAngle="Math.PI / 2"

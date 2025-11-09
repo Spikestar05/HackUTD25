@@ -1,47 +1,47 @@
 // server/api/vehicles.get.ts
-import { MongoClient, ObjectId } from 'mongodb';
+import { ObjectId } from 'mongodb';
+import { connectToDatabase } from '../utils/mongo';
 
-let cachedClient: MongoClient | null = null;
-
-async function connectToDatabase(): Promise<MongoClient> {
-  if (cachedClient) {
-    return cachedClient;
-  }
-
-  const uri = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_CLUSTER}/?appName=${process.env.MONGO_APP_NAME}`;
-  const client = new MongoClient(uri);
-
-  await client.connect();
-  cachedClient = client;
-  return client;
-}
+const queryFieldMap: Record<string, string> = {
+  model: 'Model',
+  trim: 'Trim',
+  engine: 'Engine',
+  transmission: 'Transmission',
+  drivetrain: 'DriveTrain',
+  driveTrain: 'DriveTrain',
+  exteriorColor: 'Exterior Colors',
+  interiorColor: 'Interior Colors',
+  wheels: 'Wheels',
+  fuelType: 'Fuel Type',
+  year: 'Year'
+};
 
 export default defineEventHandler(async (event) => {
   try {
     const client = await connectToDatabase();
-    const db = client.db(process.env.MONGO_DB_NAME || 'your_database_name');
-    const collection = db.collection(process.env.MONGO_COLLECTION || 'vehicles');
+    const env = (globalThis as any)?.process?.env ?? {};
+    const db = client.db(env.MONGO_DB_NAME || 'your_database_name');
+    const collection = db.collection(env.MONGO_COLLECTION || 'vehicles');
 
-    // Get query parameters
     const query = getQuery(event) as Record<string, unknown>;
-    
-    // Build MongoDB filter
+
     const filter: Record<string, any> = {};
-    
-    if (typeof query.model === 'string') filter.Model = query.model;
-    if (typeof query.trim === 'string') filter.Trim = query.trim;
-    if (typeof query.engine === 'string') filter.Engine = query.engine;
-    if (typeof query.drivetrain === 'string') filter.DriveTrain = query.drivetrain;
-    if (typeof query.fuelType === 'string') filter['Fuel Type'] = query.fuelType;
+
+    Object.entries(queryFieldMap).forEach(([queryKey, dbField]) => {
+      const value = query[queryKey];
+      if (typeof value === 'string' && value.length > 0) {
+        filter[dbField] = value;
+      }
+    });
+
     if (typeof query.id === 'string') {
       try {
         filter._id = new ObjectId(query.id);
-      } catch (e) {
+      } catch {
         // ignore invalid ObjectId and leave filter without _id
       }
     }
 
-    // Execute query
     const vehicles = await collection.find(filter).toArray();
 
     return {
@@ -49,7 +49,6 @@ export default defineEventHandler(async (event) => {
       count: vehicles.length,
       data: vehicles
     };
-
   } catch (error) {
     console.error('Database error:', error);
     const message = error instanceof Error ? error.message : String(error);

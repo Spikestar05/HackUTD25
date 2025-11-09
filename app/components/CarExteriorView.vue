@@ -1,5 +1,9 @@
 <template>
   <div class="relative w-full h-full">
+     <!-- 3D Car Viewer -->
+     <div class="absolute inset-0">
+      <Car3DViewer class="h-full w-full" />
+    </div>
     <!-- Top Controls -->
     <div class="absolute top-8 left-0 right-0 flex justify-between items-center px-8 z-20">
       <!-- Left: Wheel Icon (Go to Interior) -->
@@ -34,12 +38,7 @@
       </div>
     </div>
 
-    <!-- Car Image Placeholder -->
-    <div class="absolute inset-0 flex items-center justify-center">
-      <div class="w-full max-w-4xl h-96 bg-gradient-to-br from-red-600 to-red-800 rounded-3xl shadow-2xl flex items-center justify-center text-white text-2xl font-bold">
-        RED CAMRY - EXTERIOR VIEW
-      </div>
-    </div>
+   
 
     <!-- Bottom Voice Agent -->
     <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 z-20">
@@ -63,5 +62,7 @@
 </template>
 
 <script setup>
+import Car3DViewer from './Car3DViewer.vue'
+
 defineEmits(['go-to-interior', 'go-to-config'])
 </script>
