@@ -3,7 +3,7 @@
     <!-- Interior Colors -->
     <ConfigSection
       title="Interior"
-      :is-open="activeSection === 'interior'"
+      :is-open="activeSection.interior"
       @toggle="toggleSection('interior')"
     >
       <div class="space-y-3">
@@ -47,7 +47,7 @@
     <!-- Exterior Colors -->
     <ConfigSection
       title="Exterior"
-      :is-open="activeSection === 'exterior'"
+      :is-open="activeSection.exterior"
       @toggle="toggleSection('exterior')"
     >
       <div class="space-y-3">

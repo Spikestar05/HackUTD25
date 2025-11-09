@@ -3,7 +3,7 @@
     <!-- Engine -->
     <ConfigSection
       title="Engine"
-      :is-open="activeSection === 'engine'"
+      :is-open="activeSection.engine"
       @toggle="toggleSection('engine')"
     >
       <div class="space-y-3">
@@ -39,7 +39,7 @@
     <!-- Transmission -->
     <ConfigSection
       title="Transmission"
-      :is-open="activeSection === 'transmission'"
+      :is-open="activeSection.transmission"
       @toggle="toggleSection('transmission')"
     >
       <div class="space-y-3">
@@ -70,7 +70,7 @@
     <!-- DriveTrain -->
     <ConfigSection
       title="DriveTrain"
-      :is-open="activeSection === 'drivetrain'"
+      :is-open="activeSection.driveTrain"
       @toggle="toggleSection('drivetrain')"
     >
       <div class="space-y-3">
@@ -101,7 +101,7 @@
     <!-- Wheels -->
     <ConfigSection
       title="Wheels"
-      :is-open="activeSection === 'wheels'"
+      :is-open="activeSection.wheels"
       @toggle="toggleSection('wheels')"
     >
       <div class="space-y-3">

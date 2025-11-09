@@ -9,8 +9,8 @@
         v-if="logoPhase === 1 || logoPhase === 3"
         src="/ToyotaLogo.png"
         alt="Toyota Logo"
-        class="transition-opacity duration-500"
-        style="opacity: 1; width: 600; height: 300px;"
+        class="transition-opacity duration-2000000"
+        style="opacity: 1; width: 500; height: 300px;"
       />
     </div>
 

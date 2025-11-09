@@ -1,5 +1,12 @@
 export const useCarConfigurator = () => {
-  const activeSection = useState('activeSection', () => null)
+  const activeSection = useState('activeSection', () => ({
+    engine: true,
+    transmission: true,
+    driveTrain: true,
+    wheels: true,
+    interior: true,
+    exterior: true
+  }))
   const activeTab = useState('configActiveTab', () => 'model')
   const activeField = useState('configActiveField', () => 'engine')
   const allVehicles = useState('allVehicles', () => [])
@@ -104,7 +111,7 @@ export const useCarConfigurator = () => {
 
   // Toggle section
   const toggleSection = (section) => {
-    activeSection.value = activeSection.value === section ? null : section
+    activeSection.value[section] = !activeSection.value[section]
   }
 
   // Select option with cascade clearing and tab progression
@@ -137,6 +144,21 @@ export const useCarConfigurator = () => {
       selections.value[field] = value
     }
       // Progress to next tab after selection
+      // Progress to next tab after selection
+      if (field === 'model' && value) {
+        activeTab.value = 'trim'
+      } else if (field === 'trim' && value) {
+        activeTab.value = 'powertrain'
+      } else if (field === 'engine' && value) {
+        // Only progress if transmission and driveTrain are also selected
+        if (selections.value.transmission && selections.value.driveTrain) {
+          activeTab.value = 'colors'
+        }
+      } else if (value && field === 'wheels') {
+        if (selections.value.engine && selections.value.transmission && selections.value.driveTrain && selections.value.wheels) {
+          activeTab.value = 'colors'
+        }
+      }
   }
 
   // Get CSS classes for button options
