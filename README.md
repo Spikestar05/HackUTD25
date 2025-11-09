@@ -1,15 +1,75 @@
-# HackUTD25
-# 🧠 Our Inspiration
+# Nuxt Minimal Starter
 
-Buying a car can be overwhelming especisally with so many models, trims, and features to choose from, it’s easy for customers to feel lost. We wanted to simplify that experience by creating an interactive and personalized way to build and discover your ideal Toyota.
-Our inspiration came from the idea of a virtual car studio, where users can start with a base model, visually customize it part by part, and let smart technology guide them toward the vehicle that best matches their needs and dreams.
+Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
-# 🚗 What Does It Do?
+## Setup
 
-Our solution starts with a generic Toyota car model that users can click on to customize specific parts, from wheels and interiors to color, performance, and technology features.
+Make sure to install dependencies:
 
-As users make choices, the system intelligently matches their preferences with Toyota’s real vehicle lineup to recommend the best-fit model based on features, price range, and financing options.
+```bash
+# npm
+npm install
 
-Additionally, through ElevenLabs voice integration, users can simply describe their dream car out loud. For example, “I want a sporty hybrid SUV with great fuel economy and a sunroof” and the app will instantly analyze the request and recommend the Toyota vehicle that fits those preferences.
+# pnpm
+pnpm install
 
-The result is a fun, immersive, and personalized car discovery experience that helps people find their perfect Toyota effortlessly.
+# yarn
+yarn install
+
+# bun
+bun install
+```
+
+## Development Server
+
+Start the development server on `http://localhost:3000`:
+
+```bash
+# npm
+npm run dev
+
+# pnpm
+pnpm dev
+
+# yarn
+yarn dev
+
+# bun
+bun run dev
+```
+
+## Production
+
+Build the application for production:
+
+```bash
+# npm
+npm run build
+
+# pnpm
+pnpm build
+
+# yarn
+yarn build
+
+# bun
+bun run build
+```
+
+Locally preview production build:
+
+```bash
+# npm
+npm run preview
+
+# pnpm
+pnpm preview
+
+# yarn
+yarn preview
+
+# bun
+bun run preview
+```
+
+Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
