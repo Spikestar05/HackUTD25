@@ -13,7 +13,6 @@
       >
         <div class="w-8 h-8 rounded-full border-4 border-white"></div>
       </button>
-
       <!-- Right: X Button, 3D Icon, Model Icon -->
       <div class="flex gap-4">
         <button
@@ -31,19 +30,26 @@
             <circle cx="12" cy="12" r="3" fill="currentColor"/>
           </svg>
         </button>
-
         <button class="w-16 h-16 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center hover:bg-white/20 transition-all">
           <span class="text-2xl">🚗</span>
         </button>
       </div>
     </div>
-
-   
-
+    <!-- Car Image Placeholder -->
+    <div class="absolute inset-0 flex items-center justify-center">
+      <img src="/SupraGif.gif" alt="Red Camry Exterior" class="w-[65%] h-[65%] object-cover rounded-3xl shadow-2xl" />
+    </div>
     <!-- Bottom Voice Agent -->
     <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 z-20">
       <!-- Red Pulsing Dot -->
-      <div class="w-4 h-4 rounded-full bg-red-500 glow-red animate-pulse"></div>
+      <div
+        class="w-4 h-4 rounded-full animate-pulse transition-all"
+        :class="{
+          'bg-red-500 glow-red': !dotClicked,  // Red and pulsing when not clicked
+          'bg-green-500 w-8 h-8': dotClicked   // Green and larger when clicked
+        }"
+        @click="toggleDot"
+      ></div>
       
       <!-- Voice Wave Animation -->
       <div class="flex gap-1 items-end">
@@ -62,7 +68,11 @@
 </template>
 
 <script setup>
-import Car3DViewer from './Car3DViewer.vue'
+import { ref } from 'vue'
 
-defineEmits(['go-to-interior', 'go-to-config'])
+const dotClicked = ref(false)
+
+function toggleDot() {
+  dotClicked.value = !dotClicked.value
+}
 </script>
