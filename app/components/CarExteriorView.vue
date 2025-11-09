@@ -1,5 +1,9 @@
 <template>
   <div class="relative w-full h-full">
+     <!-- 3D Car Viewer -->
+     <div class="absolute inset-0">
+      <Car3DViewer class="h-full w-full" />
+    </div>
     <!-- Top Controls -->
     <div class="absolute top-8 left-0 right-0 flex justify-between items-center px-8 z-20">
       <!-- Left: Wheel Icon (Go to Interior) -->
@@ -32,9 +36,7 @@
       </div>
     </div>
     <!-- Car Image Placeholder -->
-    <div class="absolute inset-0 flex items-center justify-center">
-      <img src="/SupraGif.gif" alt="Red Camry Exterior" class="w-[65%] h-[65%] object-cover rounded-3xl shadow-2xl" />
-    </div>
+    
     <!-- Bottom Voice Agent -->
     <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 z-20">
       <!-- Red Pulsing Dot -->
