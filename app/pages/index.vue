@@ -44,6 +44,7 @@
       <ConfiguratorView @go-to-exterior="screen = 'exterior'" />
     </div>
   </div>
+  
 </template>
 
 <script setup>

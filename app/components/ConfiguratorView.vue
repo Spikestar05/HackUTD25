@@ -2,9 +2,11 @@
   <div class="flex w-full h-full">
     <!-- Left: Car Image -->
     <div class="flex-1 flex items-center justify-center relative">
-      <div class="w-full max-w-2xl h-96 bg-gradient-to-br from-gray-700 to-gray-900 rounded-3xl shadow-2xl flex items-center justify-center text-white text-xl font-bold">
-        ALL BLACK CAR VIEW
-      </div>
+      <img
+        src="/RedCamryNav.png"
+        alt="Vehicle interior placeholder"
+        class="w-full max-w-2xl h-96 object-cover rounded-3xl shadow-2xl"
+      />
 
       <!-- 3D Icon - Returns to Exterior -->
       <button

@@ -9,42 +9,52 @@
     </div>
 
     <!-- Tabs Header -->
-    <div class="flex border-b border-white/20 relative">
+    <div class="flex border-b border-white/20 relative overflow-x-auto">
       <button
         @click="activeTab = 'model'"
-        class="flex-1 py-6 text-sm font-medium relative transition-colors"
+        class="flex-1 py-6 px-3 text-sm font-medium relative transition-colors whitespace-nowrap"
         :class="activeTab === 'model' ? 'text-white' : 'text-gray-400'"
       >
         Model
       </button>
       <button
         @click="activeTab = 'trim'"
-        class="flex-1 py-6 text-sm font-medium relative transition-colors"
+        class="flex-1 py-6 px-3 text-sm font-medium relative transition-colors whitespace-nowrap"
         :class="activeTab === 'trim' ? 'text-white' : 'text-gray-400'"
       >
         Trim
       </button>
       <button
         @click="activeTab = 'powertrain'"
-        class="flex-1 py-6 text-sm font-medium relative transition-colors"
+        class="flex-1 py-6 px-3 text-sm font-medium relative transition-colors whitespace-nowrap"
         :class="activeTab === 'powertrain' ? 'text-white' : 'text-gray-400'"
       >
         Powertrain
       </button>
       <button
         @click="activeTab = 'colors'"
-        class="flex-1 py-6 text-sm font-medium relative transition-colors"
+        class="flex-1 py-6 px-3 text-sm font-medium relative transition-colors whitespace-nowrap"
         :class="activeTab === 'colors' ? 'text-white' : 'text-gray-400'"
       >
         Colors
+      </button>
+      <button
+        @click="activeTab = 'finance'"
+        class="flex-1 py-6 px-3 text-sm font-medium relative transition-colors whitespace-nowrap"
+        :class="activeTab === 'finance' ? 'text-white' : 'text-gray-400'"
+      >
+        Finance
       </button>
       
       <!-- Red Underline Indicator -->
       <div
         class="absolute bottom-0 h-1 bg-red-600 transition-all duration-300"
         :style="{
-          width: '25%',
-          left: activeTab === 'model' ? '0%' : activeTab === 'trim' ? '25%' : activeTab === 'powertrain' ? '50%' : '75%'
+          width: '20%',
+          left: activeTab === 'model' ? '0%' : 
+                activeTab === 'trim' ? '20%' : 
+                activeTab === 'powertrain' ? '40%' : 
+                activeTab === 'colors' ? '60%' : '80%'
         }"
       ></div>
     </div>
@@ -54,7 +64,8 @@
       <ModelTab v-if="activeTab === 'model'" />
       <TrimTab v-else-if="activeTab === 'trim'" />
       <PowertrainTab v-else-if="activeTab === 'powertrain'" />
-      <ColorsTab v-else />
+      <ColorsTab v-else-if="activeTab === 'colors'" />
+      <FinanceTab v-else-if="activeTab === 'finance'" />
     </div>
   </div>
 </template>
@@ -65,23 +76,24 @@ const { activeTab, selections } = useCarConfigurator()
 // Calculate progress based on selections and current tab
 const progress = computed(() => {
   const steps = {
-    model: { weight: 25, complete: !!selections.value.model },
-    trim: { weight: 25, complete: !!selections.value.trim },
+    model: { weight: 20, complete: !!selections.value.model },
+    trim: { weight: 20, complete: !!selections.value.trim },
     powertrain: { 
-      weight: 25, 
+      weight: 20, 
       complete: !!selections.value.engine && 
                 !!selections.value.transmission && 
                 !!selections.value.driveTrain 
     },
     colors: { 
-      weight: 25, 
+      weight: 20, 
       complete: !!selections.value.exteriorColor || 
                 !!selections.value.interiorColor 
-    }
+    },
+    finance: { weight: 20, complete: true } // Finance is always available
   }
 
   let currentProgress = 0
-  const tabOrder = ['model', 'trim', 'powertrain', 'colors']
+  const tabOrder = ['model', 'trim', 'powertrain', 'colors', 'finance']
   const currentTabIndex = tabOrder.indexOf(activeTab.value)
 
   // Add progress for completed steps
@@ -100,17 +112,17 @@ const progress = computed(() => {
     // Add partial progress for current tab
     switch (activeTab.value) {
       case 'powertrain':
-        if (selections.value.engine) currentProgress += 8
-        if (selections.value.transmission) currentProgress += 8
-        if (selections.value.driveTrain) currentProgress += 9
+        if (selections.value.engine) currentProgress += 6
+        if (selections.value.transmission) currentProgress += 7
+        if (selections.value.driveTrain) currentProgress += 7
         break
       case 'colors':
-        if (selections.value.exteriorColor) currentProgress += 12.5
-        if (selections.value.interiorColor) currentProgress += 12.5
+        if (selections.value.exteriorColor) currentProgress += 10
+        if (selections.value.interiorColor) currentProgress += 10
         break
     }
   }
 
   return currentProgress
 })
-</script>
+</script>`

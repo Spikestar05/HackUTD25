@@ -1,5 +1,9 @@
 <template>
   <div class="relative w-full h-full">
+     <!-- 3D Car Viewer -->
+     <div class="absolute inset-0">
+      <Car3DViewer class="h-full w-full" />
+    </div>
     <!-- Top Controls -->
     <div class="absolute top-8 left-0 right-0 flex justify-between items-center px-8 z-20">
       <!-- Left: Wheel Icon (Go to Interior) -->
