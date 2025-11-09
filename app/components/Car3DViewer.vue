@@ -1,6 +1,6 @@
 <script setup lang="ts">
-const selectedEngine = ref<'V4' | 'V4-hybrid' | 'V6' | 'V8'>('V4')
-const selectedTyre = ref<'A' | 'B'>('B')
+const selectedEngine = ref<'V4'>('V4')
+const selectedTyre = ref<'B'>('B')
 </script>
 
 <template>
