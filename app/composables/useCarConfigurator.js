@@ -1,5 +1,7 @@
 export const useCarConfigurator = () => {
   const activeSection = useState('activeSection', () => null)
+  const activeTab = useState('configActiveTab', () => 'model')
+  const activeField = useState('configActiveField', () => 'engine')
   const allVehicles = useState('allVehicles', () => [])
   const selections = useState('selections', () => ({
     model: null,
@@ -105,7 +107,7 @@ export const useCarConfigurator = () => {
     activeSection.value = activeSection.value === section ? null : section
   }
 
-  // Select option with cascade clearing
+  // Select option with cascade clearing and tab progression
   const selectOption = (field, value) => {
     // If clicking the same value, unselect it
     if (selections.value[field] === value) {
@@ -134,6 +136,7 @@ export const useCarConfigurator = () => {
     } else {
       selections.value[field] = value
     }
+      // Progress to next tab after selection
   }
 
   // Get CSS classes for button options
@@ -142,12 +145,12 @@ export const useCarConfigurator = () => {
     const isAvailable = isOptionAvailable(field, value)
     
     return [
-      'w-full text-left py-3 px-4 rounded-lg border transition-all',
-      isSelected
-        ? 'border-red-600 bg-red-50'
+    'w-full text-left p-4 rounded-lg border transition-all',
+    isSelected
+        ? 'border-red-600 bg-red-100 text-red-800'
         : !isAvailable
         ? 'border-gray-200 bg-gray-50 text-gray-400 cursor-not-allowed'
-        : 'border-gray-300 hover:border-red-400'
+        : 'border-gray-300 hover:border-red-600 hover:bg-red-100 hover:text-red-800'
     ]
   }
 
@@ -157,13 +160,14 @@ export const useCarConfigurator = () => {
     const isAvailable = isOptionAvailable(field, value)
     
     return [
-      'w-full text-left p-4 rounded-lg border transition-all',
-      isSelected
-        ? 'border-red-600 bg-red-50'
+    'w-full text-left p-4 rounded-lg border transition-all',
+    isSelected
+        ? 'border-red-600 bg-red-100 text-red-800'
         : !isAvailable
         ? 'border-gray-200 bg-gray-50 text-gray-400 cursor-not-allowed'
-        : 'border-gray-300 hover:border-red-400'
+        : 'border-gray-300 hover:border-red-600 hover:bg-red-100 hover:text-red-800'
     ]
+
   }
 
   // Initialize data on mount
@@ -173,6 +177,7 @@ export const useCarConfigurator = () => {
 
   return {
     activeSection,
+    activeTab,
     selections,
     allVehicles,
     availableModels,

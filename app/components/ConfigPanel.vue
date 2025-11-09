@@ -1,40 +1,56 @@
 <template>
-  <div class="w-[480px] bg-white h-full flex flex-col">
+  <div class="w-[480px] bg-black/70 backdrop-blur-md h-full flex flex-col">
     <!-- Tabs Header -->
-    <div class="flex border-b border-gray-200 relative">
+    <div class="flex border-b border-white/20 relative">
       <button
-        @click="activeTab = 'colors'"
+        @click="activeTab = 'model'"
         class="flex-1 py-6 text-sm font-medium relative transition-colors"
-        :class="activeTab === 'colors' ? 'text-gray-900' : 'text-gray-500'"
+        :class="activeTab === 'model' ? 'text-white' : 'text-gray-400'"
       >
-        Colors
+        Model
+      </button>
+      <button
+        @click="activeTab = 'trim'"
+        class="flex-1 py-6 text-sm font-medium relative transition-colors"
+        :class="activeTab === 'trim' ? 'text-white' : 'text-gray-400'"
+      >
+        Trim
       </button>
       <button
         @click="activeTab = 'powertrain'"
         class="flex-1 py-6 text-sm font-medium relative transition-colors"
-        :class="activeTab === 'powertrain' ? 'text-gray-900' : 'text-gray-500'"
+        :class="activeTab === 'powertrain' ? 'text-white' : 'text-gray-400'"
       >
         Powertrain
+      </button>
+      <button
+        @click="activeTab = 'colors'"
+        class="flex-1 py-6 text-sm font-medium relative transition-colors"
+        :class="activeTab === 'colors' ? 'text-white' : 'text-gray-400'"
+      >
+        Colors
       </button>
       
       <!-- Red Underline Indicator -->
       <div
         class="absolute bottom-0 h-1 bg-red-600 transition-all duration-300"
         :style="{
-          width: '50%',
-          left: activeTab === 'colors' ? '0%' : '50%'
+          width: '25%',
+          left: activeTab === 'model' ? '0%' : activeTab === 'trim' ? '25%' : activeTab === 'powertrain' ? '50%' : '75%'
         }"
       ></div>
     </div>
 
     <!-- Scrollable Content -->
     <div class="flex-1 overflow-y-auto">
-      <ColorsTab v-if="activeTab === 'colors'" />
-      <PowertrainTab v-else />
+      <ModelTab v-if="activeTab === 'model'" />
+      <TrimTab v-else-if="activeTab === 'trim'" />
+      <PowertrainTab v-else-if="activeTab === 'powertrain'" />
+      <ColorsTab v-else />
     </div>
   </div>
 </template>
 
 <script setup>
-const activeTab = ref('colors')
+const { activeTab } = useCarConfigurator()
 </script>

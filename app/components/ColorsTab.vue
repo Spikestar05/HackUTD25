@@ -1,46 +1,5 @@
 <template>
-  <div class="p-6 space-y-4">
-    <!-- Model Selection -->
-    <ConfigSection
-      title="Model"
-      :is-open="activeSection === 'model'"
-      @toggle="toggleSection('model')"
-    >
-      <div class="space-y-2">
-        <p class="text-sm text-gray-500 mb-4">Choose your option</p>
-        <button
-          v-for="model in availableModels"
-          :key="model"
-          @click="selectOption('model', model)"
-          :disabled="!isOptionAvailable('model', model)"
-          :class="getOptionClasses('model', model)"
-        >
-          {{ model }}
-        </button>
-      </div>
-    </ConfigSection>
-
-    <!-- Trim Selection -->
-    <ConfigSection
-      title="Trim"
-      :is-open="activeSection === 'trim'"
-      :disabled="!selections.model"
-      @toggle="toggleSection('trim')"
-    >
-      <div class="space-y-2">
-        <p class="text-sm text-gray-500 mb-4">Choose your option</p>
-        <button
-          v-for="trim in availableTrims"
-          :key="trim"
-          @click="selectOption('trim', trim)"
-          :disabled="!isOptionAvailable('trim', trim)"
-          :class="getOptionClasses('trim', trim)"
-        >
-          {{ trim }}
-        </button>
-      </div>
-    </ConfigSection>
-
+  <div class="p-6 space-y-4 text-white">
     <!-- Interior Colors -->
     <ConfigSection
       title="Interior"
@@ -148,7 +107,12 @@ const {
 const getColorClass = (color) => {
   if (color.includes('Black') || color.includes('Midnight')) return 'bg-gray-900'
   if (color.includes('Gray') || color.includes('Grey')) return 'bg-gray-300'
-  if (color.includes('White') || color.includes('Pearl') || color.includes('Ice')) return 'bg-gray-100'
+  if (color.includes('Red') || color.includes('Ruby Flare Pearl')) return 'bg-red-900'
+  if (color.includes('Sonic Silver')) return 'bg-gray-500'
+  if (color.includes ('Celestite')) return 'bg-gray-600'
+  if (color.includes ('Ice Cap')) return 'bg-white-600'
+  if (color.includes ('Blueprint')) return 'bg-blue-200'
+  if (color.includes('White') || color.includes('Wind Chill Pearl')) return 'bg-gray-100'
   return 'bg-gray-400'
 }
 </script>

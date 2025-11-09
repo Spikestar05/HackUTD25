@@ -1,5 +1,5 @@
 <template>
-  <div class="p-6 space-y-4">
+  <div class="p-6 space-y-4 text-white">
     <!-- Engine -->
     <ConfigSection
       title="Engine"

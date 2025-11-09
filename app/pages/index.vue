@@ -5,12 +5,13 @@
       v-if="screen === 'logo'"
       class="fixed inset-0 bg-black flex items-center justify-center z-50"
     >
-      <div
-        class="text-8xl font-bold text-white transition-opacity duration-500"
-        :style="{ opacity: logoPhase === 1 || logoPhase === 3 ? 1 : 0 }"
-      >
-        TOYOTA
-      </div>
+      <img
+        v-if="logoPhase === 1 || logoPhase === 3"
+        src="/ToyotaLogo.png"
+        alt="Toyota Logo"
+        class="transition-opacity duration-500"
+        style="opacity: 1; width: 600; height: 300px;"
+      />
     </div>
 
     <!-- Car Exterior View -->

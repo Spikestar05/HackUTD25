@@ -4,7 +4,7 @@
       @click="$emit('toggle')"
       :disabled="disabled"
       class="w-full text-left py-4 border-b border-gray-200 font-medium flex justify-between items-center transition-colors"
-      :class="disabled ? 'text-gray-400 cursor-not-allowed' : 'text-gray-900 hover:text-red-600'"
+      :class="disabled ? 'text-gray-400 cursor-not-allowed' : 'text-white-900 hover:text-red-600'"
     >
       {{ title }}
     </button>
