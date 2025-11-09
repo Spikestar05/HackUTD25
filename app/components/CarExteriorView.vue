@@ -33,7 +33,7 @@
     </div>
     <!-- Car Image Placeholder -->
     <div class="absolute inset-0 flex items-center justify-center">
-      <img src="/RedCamry.png" alt="Red Camry Exterior" class="w-[65%] h-[65%] object-cover rounded-3xl shadow-2xl" />
+      <img src="/SupraGif.gif" alt="Red Camry Exterior" class="w-[65%] h-[65%] object-cover rounded-3xl shadow-2xl" />
     </div>
     <!-- Bottom Voice Agent -->
     <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 z-20">
