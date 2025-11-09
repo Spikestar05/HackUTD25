@@ -18,7 +18,8 @@ export default defineNuxtConfig({
     '@nuxt/ui',
     '@tresjs/nuxt',
   ],
+  
   tres: {
     devtools: true
-  }
+  },
 })
