@@ -1,61 +1,15 @@
 # HackUTD25
+# 🧠 Our Inspiration
 
-# 🚗 Toyota Dream Car Finder
+Buying a car can be overwhelming especisally with so many models, trims, and features to choose from, it’s easy for customers to feel lost. We wanted to simplify that experience by creating an interactive and personalized way to build and discover your ideal Toyota.
+Our inspiration came from the idea of a virtual car studio, where users can start with a base model, visually customize it part by part, and let smart technology guide them toward the vehicle that best matches their needs and dreams.
 
-A web solution that helps users easily search, compare, and find their dream Toyota vehicles based on personal preferences such as model, price range, financing options, fuel efficiency, and many more.
+# 🚗 What Does It Do?
 
-# 🧩 Project Overview
+Our solution starts with a generic Toyota car model that users can click on to customize specific parts, from wheels and interiors to color, performance, and technology features.
 
-Toyota is a global leader in manufacturing top-quality, fuel-efficient, and best-selling vehicles.
-This project aims to enhance the online car shopping experience by allowing users to:
+As users make choices, the system intelligently matches their preferences with Toyota’s real vehicle lineup to recommend the best-fit model based on features, price range, and financing options.
 
-🔍 Search Toyota vehicles by model, price, and category
+Additionally, through ElevenLabs voice integration, users can simply describe their dream car out loud. For example, “I want a sporty hybrid SUV with great fuel economy and a sunroof” and the app will instantly analyze the request and recommend the Toyota vehicle that fits those preferences.
 
-⚖️ Compare multiple vehicles side by side
-
-💰 Explore finance and lease options
-
-❤️ Save favorite vehicles for future reference
-
-📱 Access the platform seamlessly via web or mobile
-
-# 🚀 Features
-
-Intelligent Search – Quickly find cars based on budget, model, or fuel type
-
-Vehicle Comparison – Compare specs, prices, and financing options
-
-Finance & Lease Calculator – Estimate monthly payments and total cost
-
-Responsive Design – Works smoothly on desktop and mobile devices
-
-# 🛠️ Tech Stack
-Frontend:	React / React Native / Next.js
-Backend:	Node.js / Express / Python (Flask or Django)
-Database:	Firebase / MongoDB / PostgreSQL
-APIs:	Toyota Vehicle Data API (or mock dataset)
-Hosting:	Vercel / Netlify / AWS / Firebase Hosting
-
-# 💡 How It Works
-
-Users enter preferences (budget, type, model, etc.).
-
-The app fetches matching Toyota vehicles from the dataset or API.
-
-Users can compare multiple cars and view estimated finance/lease costs.
-
-A summary view helps users choose their ideal Toyota vehicle.
-
-# 🧠 Future Enhancements
-
-Integration with Toyota’s official APIs for real-time data
-
-Personalized recommendations using AI/ML
-
-Virtual car showroom with AR/3D previews
-
-Dealer locator and booking test drives
-
-# 🏁 Conclusion
-
-The Toyota Dream Car Finder reimagines how customers shop for Toyota vehicles — making it simpler, smarter, and more personalized than ever.
+The result is a fun, immersive, and personalized car discovery experience that helps people find their perfect Toyota effortlessly.
