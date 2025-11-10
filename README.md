@@ -1,3 +1,15 @@
+# Toyota Dream Car Finder: BYR
+A web solution that helps users easily search, compare, and find their dream Toyota vehicles based on personal preferences such as model, price range, financing options, fuel efficiency, and many more.
+
+# Project Overview
+Toyota is a global leader in manufacturing top-quality, fuel-efficient, and best-selling vehicles. This project aims to enhance the online car shopping experience by allowing users to:
+
+🔍 Search Toyota vehicles by model, price, and category
+
+⚖️ Compare multiple vehicles side by side
+
+💰 Explore finance and lease options
+
 # Inspiration
 We wanted to transform the ordinary car-buying experience into something fun, interactive, and personal. Instead of clicking through endless spec sheets, we envisioned a website where customers can build their dream car piece by piece, just like building a bear, but for cars! The goal was to make customization intuitive, visual, and exciting.
 
@@ -18,6 +30,16 @@ Created custom 3D car parts in Blender and integrated them into a Nuxt.js web ap
 Built a recommendation system that matches dream builds to real car models.
 
 Developed a cohesive user interface that feels both professional and fun.
+
+
+# Future Enhancements
+Integration with Toyota’s official APIs for real-time data
+
+Personalized recommendations using AI/ML
+
+Virtual car showroom with AR/3D previews
+
+Dealer locator and booking test drives
 
 # What we learned
 We learned how to connect creativity and technology through 3D visualization, full-stack development, and user experience design. Our team gained valuable experience with 3D modeling in Blender, rendering with TresJS, and full-stack integration using Nuxt.js and MongoDB. Most importantly, we learned how thoughtful design can turn a standard process into something engaging and memorable.
